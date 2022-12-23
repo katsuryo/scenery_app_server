@@ -22,7 +22,7 @@ class GraphqlController < ApplicationController
 
   private
 
-  # Handle variables in form data, JSON body, or a blank value
+  # Handle variables in forms data, JSON body, or a blank value
   def prepare_variables(variables_param)
     case variables_param
     when String

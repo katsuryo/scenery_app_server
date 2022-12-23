@@ -1,15 +1,19 @@
 module Mutations
   class CreateUser < BaseMutation
-    field :user, Types::UserType, null:true
+    graphql_name 'CreateUser'
+    field :user, Types::UserType, null: true
 
     argument :name, String, required: true
-    argument :email, String, required: false
+    argument :email, String, required: true
 
     def resolve(**args)
-      user = User.create!(args)
-      {
-        user: user
-      }
+      form = Api::User::Mutations::Users::CreateForm.new(args)
+      if form.valid?
+        response = form.create
+        Mutations::UserResponse.base_response(response)
+      else
+        ErrorResponse.base_response('無効なリクエストです', STATUS_BAD_REQUEST)
+      end
     end
   end
 end
