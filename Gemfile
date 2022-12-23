@@ -39,6 +39,8 @@ gem "bootsnap", require: false
 gem 'graphql'
 gem 'graphiql-rails' 
 gem 'sprockets', '~> 3.7.2'
+gem 'pry'
+gem 'pry-byebug'
 gem 'pry-rails'
 
 
