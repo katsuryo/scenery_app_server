@@ -10,8 +10,8 @@ class Api::User::Mutations::Users::CreateForm
     @email = params[:email]
   end
 
-  def create
-    User.create!(valid_params)
+  def build_handler
+    User::Mutations::CreateUserHandler.new(valid_params)
   rescue StandardError => e
     { json: ErrorResponse.base_response(e.message, STATUS_FATAL) }
   end

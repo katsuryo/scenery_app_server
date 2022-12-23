@@ -9,7 +9,8 @@ module Mutations
     def resolve(**args)
       form = Api::User::Mutations::Users::CreateForm.new(args)
       if form.valid?
-        response = form.create
+        handler = form.build_handler
+        response = handler.handle_create_user
         Mutations::UserResponse.base_response(response)
       else
         ErrorResponse.base_response('無効なリクエストです', STATUS_BAD_REQUEST)
