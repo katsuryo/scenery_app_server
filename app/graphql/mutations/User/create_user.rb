@@ -1,5 +1,5 @@
 module Mutations
-  class CreateUser < BaseMutation
+  class Mutations::User::CreateUser < BaseMutation
     graphql_name 'CreateUser'
     field :user, Types::UserType, null: true
 

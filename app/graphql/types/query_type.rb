@@ -11,14 +11,6 @@ module Types
     field :posts, resolver: Resolvers::QueryTypes::PostsResolver
     # field :post, resolver: Resolvers::QueryTypes::PostResolver
 
-    # field :user, Types::UserType, null: false do
-    #   description 'ユーザ情報を1件取得する'
-    #   argument :id, Int, required: true, description: 'ユーザID'
-    # end
-    # def user(id:)
-    #   User.find(id)
-    # end
-
     field :post, Types::PostType, null: false do
       description 'post情報を1件取得する'
       argument :id, Int, required: true, description: 'postID'
