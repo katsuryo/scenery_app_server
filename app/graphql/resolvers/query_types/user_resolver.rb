@@ -11,7 +11,6 @@ module Resolvers::QueryTypes
       else
         ErrorResponse.base_response("無効なリクエスト", STATUS_BAD_REQUEST)
       end
-      
     end
     def resolve(id:)
       User.find(id)
