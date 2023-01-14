@@ -13,6 +13,7 @@ module Resolvers::QueryTypes
       end
     end
     def resolve(id:)
+      
       User.find(id)
     end
   end
